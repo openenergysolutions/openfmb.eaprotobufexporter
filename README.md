@@ -1,2 +1,2 @@
 # openfmb.eaprotobufexporter
-Creates Protocol Buffer .proto files from OpenFMB UML project.
+Creates Protocol Buffer .proto files from Enterprise Architect OpenFMB UML project.
