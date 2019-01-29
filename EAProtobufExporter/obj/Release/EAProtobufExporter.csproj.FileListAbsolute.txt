@@ -1,0 +1,10 @@
+C:\openfmb.eaprotobufexporter\EAProtobufExporter\bin\Release\EAProtobufExporter.dll
+C:\openfmb.eaprotobufexporter\EAProtobufExporter\bin\Release\EAProtobufExporter.pdb
+C:\openfmb.eaprotobufexporter\EAProtobufExporter\obj\Release\EAProtobufExporter.AboutBox.resources
+C:\openfmb.eaprotobufexporter\EAProtobufExporter\obj\Release\EAProtobufExporter.OpenFMBMessageProfileSelector.resources
+C:\openfmb.eaprotobufexporter\EAProtobufExporter\obj\Release\EAProtobufExporter.Properties.Resources.resources
+C:\openfmb.eaprotobufexporter\EAProtobufExporter\obj\Release\EAProtobufExporter.UserAction.resources
+C:\openfmb.eaprotobufexporter\EAProtobufExporter\obj\Release\EAProtobufExporter.csproj.GenerateResource.cache
+C:\openfmb.eaprotobufexporter\EAProtobufExporter\obj\Release\EAProtobufExporter.csproj.CoreCompileInputs.cache
+C:\openfmb.eaprotobufexporter\EAProtobufExporter\obj\Release\EAProtobufExporter.dll
+C:\openfmb.eaprotobufexporter\EAProtobufExporter\obj\Release\EAProtobufExporter.pdb
