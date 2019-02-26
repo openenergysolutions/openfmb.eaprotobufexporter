@@ -26,8 +26,8 @@ namespace EAProtobufExporter
     {
         private String packageName = null;
         private String comment = null;
-        private String stereotype = null;
-        private Proto3MessageEnumeration proto3MessageEnumeration = null;
+        private String stereotype = null;        
+        private readonly List<Proto3MessageEnumeration> proto3MessageEnumerations = new List<Proto3MessageEnumeration>();
         private String selectedPath = null;
         private WriteProto3File writeProto3File = null;
 
@@ -123,10 +123,10 @@ namespace EAProtobufExporter
 
             writeProto3File.append(0, "");
 
-            if (proto3MessageEnumeration != null)
+            foreach(Proto3MessageEnumeration proto3MessageEnumeration in proto3MessageEnumerations)
             {
                 proto3MessageEnumeration.write(writeProto3File, false);
-            } // end if
+            }
 
             writeProto3File.writeFile();
             Global.textBoxOutput.outputTextLine("Protobuf file '" + writeProto3File.outputFileName + "' saved.");
@@ -146,10 +146,11 @@ namespace EAProtobufExporter
             Global.textBoxOutput.outputTextLine(indent, "ProtobufTag_java_multiple_files: " + javaMultipleFilesOptionValue);
             Global.textBoxOutput.outputTextLine(indent, "ProtobufTag_csharp_namespace: " + cSharpNamespaceOptionValue);
             Global.textBoxOutput.outputTextLine(indent, "ProtobufTag_package: " + packageValue);
-            if (proto3MessageEnumeration != null)
+            
+            foreach (Proto3MessageEnumeration proto3MessageEnumeration in proto3MessageEnumerations)
             {
-                proto3MessageEnumeration.print(indent);
-            } // end if
+                proto3MessageEnumeration.write(writeProto3File, false);
+            }
 
         } // end of public void print(int indent)
 
@@ -177,17 +178,17 @@ namespace EAProtobufExporter
 
         } // end of public void setSterotype(String sterotype)
 
-        public Proto3MessageEnumeration getProto3MessageEnumeration()
+        public List<Proto3MessageEnumeration> getProto3MessageEnumerations()
         {
-            return proto3MessageEnumeration;
+            return proto3MessageEnumerations;
 
-        } // end of public Proto3MessageEnumeration getProto3MessageEnumeration()
+        } // end of public List<Proto3MessageEnumeration> getProto3MessageEnumerations()
 
-        public void setProto3MessageEnumeration(Proto3MessageEnumeration proto3MessageEnumeration)
+        public void addProto3MessageEnumeration(Proto3MessageEnumeration proto3MessageEnumeration)
         {
-            this.proto3MessageEnumeration = proto3MessageEnumeration;
+            proto3MessageEnumerations.Add(proto3MessageEnumeration);
 
-        } // end of public void setProto3MessageEnumeration(Proto3MessageEnumeration proto3MessageEnumeration)
+        } // end of public void addProto3MessageEnumeration(Proto3MessageEnumeration proto3MessageEnumeration)
 
         public void setSelectedPath(String selectedPath)
         {

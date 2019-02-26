@@ -31,6 +31,7 @@ namespace EAProtobufExporter
         private String fieldVariableNamePrefix = null;
         private List<Proto3Field> proto3Fields = null;
         private Boolean primitiveDataTypeWrapperSet = false;
+        private Boolean openFmbProfile = false;
 
         public Proto3MessageEnumeration(String type, String name)
         {
@@ -161,6 +162,11 @@ namespace EAProtobufExporter
                 writeProto3File.append(0, type + " " + name);
                 writeProto3File.append(0, "{");
 
+                if (isOpenFmbProfile())
+                {
+                    writeProto3File.append(1, "option (uml.option_openfmb_profile) = true;");
+                }
+
                 if (!error)
                 {
                     foreach (Proto3Field proto3Field in proto3Fields)
@@ -267,6 +273,16 @@ namespace EAProtobufExporter
             return primitiveDataTypeWrapperSet;
 
         } // end public Boolean isPrimitiveDataTypeWrapperSet()
+
+        public Boolean isOpenFmbProfile()
+        {
+            return openFmbProfile;
+        }
+
+        public void setOpenFmbProfile(Boolean flag)
+        {
+            openFmbProfile = flag;
+        }
 
     } // end of public class Proto3MessageEnumeration
 

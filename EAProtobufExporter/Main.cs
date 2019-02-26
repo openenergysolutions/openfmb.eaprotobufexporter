@@ -514,13 +514,14 @@ namespace EAProtobufExporter
 
             if (package.Elements.Count > 0)
             {
-                if (proto3GlobalModuleInfo != null && proto3GlobalModuleInfo.getProto3MessageEnumeration() == null)
+                if (proto3GlobalModuleInfo != null && proto3GlobalModuleInfo.getProto3MessageEnumerations().Count == 0)
                 {
-                    Proto3MessageEnumeration proto3MessageEnumeration = processGlobalElements(package);
-                    if (proto3MessageEnumeration != null)
+                    // processGlobalElements now returns multiple proto3MessageEnumerations since we added "option_openfmb_profile"
+                    List<Proto3MessageEnumeration> proto3MessageEnumerations = processGlobalElements(package);
+                    foreach(Proto3MessageEnumeration enumeration in proto3MessageEnumerations)
                     {
-                        proto3GlobalModuleInfo.setProto3MessageEnumeration(proto3MessageEnumeration);
-                    } // end if
+                        proto3GlobalModuleInfo.addProto3MessageEnumeration(enumeration);
+                    }
 
                 }
                 else if (proto3File != null)
@@ -584,12 +585,14 @@ namespace EAProtobufExporter
 
         } // end of private static Proto3ModulelInfo processPackageTaggedValues(Package package)
 
-        private static Proto3MessageEnumeration processGlobalElements(Package parentPackage)
+        private static List<Proto3MessageEnumeration> processGlobalElements(Package parentPackage)
         {
-            Proto3MessageEnumeration proto3MessageEnumeration = null;
+            List<Proto3MessageEnumeration> list = new List<Proto3MessageEnumeration>();
 
             foreach (Element element in parentPackage.Elements)
             {
+                Proto3MessageEnumeration proto3MessageEnumeration = null;
+
                 foreach (TaggedValue taggedValue in element.TaggedValues)
                 {
                     if (taggedValue.Name.Equals("ProtobufTag_extend") && taggedValue.Value.Equals("true") && proto3GlobalModuleInfo != null)
@@ -631,22 +634,20 @@ namespace EAProtobufExporter
 
                     } // end foreach
 
+                    if (!proto3MessageEnumeration.sortProto3Fields())
+                    {
+                        Global.errorGeneratingProtobuf = true;
+                    } // end if
+
+                    list.Add(proto3MessageEnumeration);
+
                 } // end if
 
-            } // end foreach
+            } // end foreach           
 
-            if (proto3MessageEnumeration != null)
-            {
-                if (!proto3MessageEnumeration.sortProto3Fields())
-                {
-                    Global.errorGeneratingProtobuf = true;
-                } // end if
+            return list;
 
-            } // end if
-
-            return proto3MessageEnumeration;
-
-        } // end of private static Proto3MessageEnumeration processGlobalElements(Package parentPackage)
+        } // end of private static List<Proto3MessageEnumeration> processGlobalElements(Package parentPackage)
 
         private static void processPackageElement(Element element, Proto3File proto3File)
         {
@@ -718,6 +719,19 @@ namespace EAProtobufExporter
                 if (type != null)
                 {
                     proto3MessageEnumeration = new Proto3MessageEnumeration(type, element.Name);
+
+                    if (type == "message")
+                    {
+                        foreach(EA.TaggedValue tag in element.TaggedValues)
+                        {
+                            System.Diagnostics.Debug.WriteLine(tag.Name + " = " + tag.Value);
+                            if (tag.Name.Equals("ProtobufTag_openfmb_profile") && tag.Value.ToUpper().Equals("TRUE"))
+                            {
+                                proto3MessageEnumeration.setOpenFmbProfile(true);
+                            } // end if
+                        }
+                    }
+
                     proto3MessageEnumeration.setComment(element.Notes.Trim());
 
                     List<Proto3Field> proto3Fields = buildProto3Fields(element, proto3File);
