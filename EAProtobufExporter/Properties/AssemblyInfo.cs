@@ -6,7 +6,7 @@ using System.Runtime.InteropServices;
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
 [assembly: AssemblyTitle("EAProtobufExporter")]
-[assembly: AssemblyDescription("The Enterprise Architect to Protocol Buffer Exporter is an Enterprise Architecture Add-In to export OpenFMB UML modules or packages as Protocol Buffer definition (.proto) files.")]
+[assembly: AssemblyDescription("The Enterprise Architect to Protocol Buffer Exporter is an Enterprise Architect Add-In to export OpenFMB UML modules or packages as Protocol Buffer definition (.proto) files.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
 [assembly: AssemblyProduct("Enterprise Architect to Protocol Buffers Exporter")]
