@@ -77,75 +77,16 @@ namespace EAProtobufExporter
 
         private Boolean sortProtobufTags()
         {
-            Boolean sorted = true;
-            Boolean done = false;
-            Boolean found = false;
-            List<Proto3Field> saveList = new List<Proto3Field>();
-            List<Proto3Field> sortedList = new List<Proto3Field>();
-
-            foreach (Proto3Field proto3Field in proto3Fields)
+            var missingTag = proto3Fields.FirstOrDefault(x => x.getDefaultValue() == -1);
+            if (missingTag != null)
             {
-                saveList.Add(proto3Field);
-            } // end foreach
-
-            while (!done && proto3Fields.Count > 0)
-            {
-                found = false;
-                int i = 0;
-                while (!found && i < proto3Fields.Count)
-                {
-                    Proto3Field proto3Field = proto3Fields.ElementAt(i);
-                    if (proto3Field.getDefaultValue() == sortedList.Count + 1)
-                    {
-                        found = true;
-                        sortedList.Add(proto3Field);
-                        proto3Fields.Remove(proto3Field);
-                    } // end if
-
-                    if (proto3Fields.Count == 0 || i > proto3Fields.Count)
-                    {
-                        done = true;
-                    } // end if
-
-                    i++;
-
-                } // end while
-
-                if (!found)
-                {
-                    Global.errorMessages.Add("ERROR - Proto3MessageEnumeration.SortProto3Fields - There are invalid ProtobufTags in element " + name + ":");
-                    foreach (Proto3Field proto3Field in saveList)
-                    {
-                        if (proto3Field.getDefaultValue() == -1)
-                        {
-                            Global.textBoxOutput.outputTextLine(1, "Variable Type: " + proto3Field.getVariableType() + ", " + "Variable Name: " + proto3Field.getVariableName() + ", ProtobufTag not defined.");
-                        }
-                        else
-                        {
-                            Global.textBoxOutput.outputTextLine(1, "Variable Type: " + proto3Field.getVariableType() + ", " + "Variable Name: " + proto3Field.getVariableName() + ", ProtobufTag: " + proto3Field.getDefaultValue());
-                        } // end else
-
-                    } // end foreach
-
-                    Global.errorGeneratingProtobuf = true;
-                    sorted = false;
-                    done = true;
-
-                } // end if
-
-            } // end while
-
-            if (sorted)
-            {
-                proto3Fields = sortedList;
+                Global.errorGeneratingProtobuf = true;
+                Global.textBoxOutput.outputTextLine(1, "Variable Type: " + missingTag.getVariableType() + ", " + "Variable Name: " + missingTag.getVariableName() + ", ProtobufTag not defined.");
+                return false;
             }
-            else
-            {
-                proto3Fields = saveList;
-            } // end else
 
-            return sorted;
-
+            proto3Fields = proto3Fields.OrderBy(x => x.getDefaultValue()).ToList();
+            return true;
         } // end of private Boolean sortProto3Fields()
 
         public void write(WriteProto3File writeProto3File, Boolean writeComment)
