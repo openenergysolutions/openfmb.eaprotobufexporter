@@ -80,8 +80,8 @@ namespace EAProtobufExporter
             var missingTag = proto3Fields.FirstOrDefault(x => x.getDefaultValue() == -1);
             if (missingTag != null)
             {
-                Global.errorGeneratingProtobuf = true;
-                Global.textBoxOutput.outputTextLine(1, "Variable Type: " + missingTag.getVariableType() + ", " + "Variable Name: " + missingTag.getVariableName() + ", ProtobufTag not defined.");
+                Global.errorGeneratingProtobuf = true;                
+                Global.textBoxOutput.outputTextLine(0, $"ProtobufTag not defined - Name: {name}, Variable Type: {missingTag.getVariableType()}, Variable Name: {missingTag.getVariableName()}.");
                 return false;
             }
 
