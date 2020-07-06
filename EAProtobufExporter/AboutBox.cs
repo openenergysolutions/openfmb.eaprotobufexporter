@@ -18,6 +18,7 @@ using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Drawing;
+using System.IO;
 using System.Linq;
 using System.Reflection;
 using System.Threading.Tasks;
@@ -32,7 +33,7 @@ namespace EAProtobufExporter
             InitializeComponent();
             this.Text = String.Format("About {0}", AssemblyTitle);
             this.labelProductName.Text = AssemblyProduct;
-            this.labelVersion.Text = String.Format("Version {0}", AssemblyVersion);
+            this.labelVersion.Text = String.Format("Version {0} {1}", AssemblyVersion, GetGitCommitHash());
             this.labelCopyright.Text = AssemblyCopyright;
             this.labelCompanyName.Text = AssemblyCompany;
             this.textBoxDescription.Text = AssemblyDescription;
@@ -121,6 +122,25 @@ namespace EAProtobufExporter
         private void labelCopyright_Click(object sender, EventArgs e)
         {
 
+        }
+
+        private string GetGitCommitHash()
+        {
+            try
+            {
+                var assembly = Assembly.GetExecutingAssembly();
+                var resourceName = $"{GetType().Namespace}.gitcommit.txt";
+
+                using (Stream stream = assembly.GetManifestResourceStream(resourceName))
+                using (StreamReader reader = new StreamReader(stream))
+                {
+                    return $"(Commit {reader.ReadLine()})";
+                }
+            }
+            catch
+            {
+                return string.Empty;
+            }
         }
 
     }
