@@ -32,6 +32,7 @@ namespace EAProtobufExporter
         private List<Proto3Field> proto3Fields = null;
         private Boolean primitiveDataTypeWrapperSet = false;
         private Boolean openFmbProfile = false;
+        private String reservedTags = null;
 
         public Proto3MessageEnumeration(String type, String name)
         {
@@ -81,7 +82,19 @@ namespace EAProtobufExporter
             if (missingTag != null)
             {
                 Global.errorGeneratingProtobuf = true;                
-                Global.textBoxOutput.outputTextLine(0, $"ProtobufTag not defined - Name: {name}, Variable Type: {missingTag.getVariableType()}, Variable Name: {missingTag.getVariableName()}.");
+                Global.textBoxOutput.outputTextLine(0, $"ProtobufTag not defined - Class Name: {name}, Variable Type: {missingTag.getVariableType()}, Variable Name: {missingTag.getVariableName()}.");
+                return false;
+            }
+
+            // Find duplicate
+            var groups = proto3Fields.GroupBy(x => x.getDefaultValue()).Where(g => g.Count() > 1).SelectMany(y => y);
+            if (groups.Count() > 0)
+            {
+                Global.errorGeneratingProtobuf = true;
+                foreach (var g in groups)
+                {
+                    Global.textBoxOutput.outputTextLine(0, $"ProtobufTag duplicated - Class Name: {name}, Variable Type: {g.getVariableType()}, Variable Name: {g.getVariableName()}, Tag: {g.getDefaultValue()}.");
+                }
                 return false;
             }
 
@@ -106,6 +119,11 @@ namespace EAProtobufExporter
                 if (isOpenFmbProfile())
                 {
                     writeProto3File.append(1, "option (uml.option_openfmb_profile) = true;");
+                }
+
+                if (!string.IsNullOrWhiteSpace(reservedTags))
+                {
+                    writeProto3File.append(1, $"reserved {reservedTags};");
                 }
 
                 if (!error)
@@ -223,6 +241,16 @@ namespace EAProtobufExporter
         public void setOpenFmbProfile(Boolean flag)
         {
             openFmbProfile = flag;
+        }
+
+        public String getReservedTags()
+        {
+            return reservedTags;
+        }
+
+        public void setReservedTags(String tags)
+        {
+            reservedTags = tags;
         }
 
     } // end of public class Proto3MessageEnumeration

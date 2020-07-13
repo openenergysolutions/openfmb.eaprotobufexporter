@@ -595,6 +595,8 @@ namespace EAProtobufExporter
 
                 foreach (TaggedValue taggedValue in element.TaggedValues)
                 {
+                    var tagName = taggedValue.Name;
+                    System.Diagnostics.Debug.WriteLine(taggedValue.Name + " = " + taggedValue.Value);
                     if (taggedValue.Name.Equals("ProtobufTag_extend") && taggedValue.Value.Equals("true") && proto3GlobalModuleInfo != null)
                     {
                         proto3GlobalModuleInfo.setStereotype(element.Stereotype);
@@ -720,15 +722,20 @@ namespace EAProtobufExporter
                 {
                     proto3MessageEnumeration = new Proto3MessageEnumeration(type, element.Name);
 
-                    if (type == "message")
+                    foreach (EA.TaggedValue tag in element.TaggedValues)
                     {
-                        foreach(EA.TaggedValue tag in element.TaggedValues)
+                        var tagName = tag.Name;
+                        System.Diagnostics.Debug.WriteLine(tag.Name + " = " + tag.Value);
+                        if (tag.Name.Equals("ProtobufTag_openfmb_profile") && tag.Value.ToUpper().Equals("TRUE"))
                         {
-                            System.Diagnostics.Debug.WriteLine(tag.Name + " = " + tag.Value);
-                            if (tag.Name.Equals("ProtobufTag_openfmb_profile") && tag.Value.ToUpper().Equals("TRUE"))
+                            if (type == "message")
                             {
                                 proto3MessageEnumeration.setOpenFmbProfile(true);
-                            } // end if
+                            }
+                        } // end if
+                        else if (tag.Name.Equals("ProtobufTag_Reserved") && !string.IsNullOrWhiteSpace(tag.Value))
+                        {
+                            proto3MessageEnumeration.setReservedTags(tag.Value);
                         }
                     }
 
