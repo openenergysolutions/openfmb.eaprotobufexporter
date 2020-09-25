@@ -57,6 +57,7 @@ namespace EAProtobufExporter
             {"boolean", "bool"},
             {"string", "string"},
             {"FLOAT32", "float"},
+            {"FLOAT64", "double"},
             {"float", "float"},
             {"INT32", "int32"},
             {"int32", "int32"},
