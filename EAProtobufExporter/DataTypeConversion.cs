@@ -59,6 +59,7 @@ namespace EAProtobufExporter
             {"FLOAT32", "float"},
             {"FLOAT64", "double"},
             {"float", "float"},
+            {"double", "double" },
             {"INT32", "int32"},
             {"int32", "int32"},
             {"INT64", "int64"},
