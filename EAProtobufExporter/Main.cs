@@ -800,7 +800,12 @@ namespace EAProtobufExporter
             Element elementOfAttribute = null;
 
             Proto3Field proto3Field = new Proto3Field(attribute.Type, attribute.Name);
-            if (DataTypeConversion.checkInvalidDataType(attribute.Type))
+            if (element.Type == "Class" && string.IsNullOrWhiteSpace(attribute.Type))
+            {
+                Global.errorMessages.Add("ERROR - Main.ProcessElementAttributes - " + Global.INVALID_PROTOBUF_DATATYPE + " for Attribute Name '" + attribute.Name + "' with Attribute Type is BLANK in Element '" + element.Name + "'.");
+                Global.errorGeneratingProtobuf = true;
+            }
+            else if (DataTypeConversion.checkInvalidDataType(attribute.Type))
             {
                 Global.errorMessages.Add("ERROR - Main.ProcessElementAttributes - " + Global.INVALID_PROTOBUF_DATATYPE + " for Attribute Name '" + attribute.Name + "' with Attribute Type '" + attribute.Type + "' in Element '" + element.Name + "'.");
                 Global.errorGeneratingProtobuf = true;
