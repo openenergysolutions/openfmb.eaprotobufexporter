@@ -99,7 +99,7 @@ Manually installing the OpenFMB Protobuf Exporter can be done by following these
 
 ## Contributing
 
-Contributing to the Adapter requires signing a CLA, please email cla@openenergysolutionsinc.com and
+Contributing to the OpenFMB Protobuf Export tool requires signing a CLA, please email cla@openenergysolutionsinc.com and
 request it.
 
 ## Other OpenFMB Tools
