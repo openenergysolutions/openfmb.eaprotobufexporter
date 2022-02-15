@@ -10,7 +10,7 @@ The OpenFMB Protobuf Exporter is an [Enterprise Architect](https://sparxsystems.
 
 1. Download the installer from the release below:
 
-    https://github.com
+    https://github.com/openenergysolutions/openfmb.eaprotobufexporter/releases/download/v1.0.0/setup.exe
 
 2. Double click on Setup.exe to start the installer
 
