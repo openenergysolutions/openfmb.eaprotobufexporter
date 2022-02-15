@@ -36,11 +36,9 @@
             this.textBoxDescription = new System.Windows.Forms.TextBox();
             this.okButton = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox2 = new System.Windows.Forms.PictureBox();
             this.tableLayoutPanel.SuspendLayout();
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).BeginInit();
             this.SuspendLayout();
             // 
@@ -48,14 +46,15 @@
             // 
             this.tableLayoutPanel.ColumnCount = 1;
             this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel.Controls.Add(this.labelProductName, 0, 0);
             this.tableLayoutPanel.Controls.Add(this.labelVersion, 0, 1);
             this.tableLayoutPanel.Controls.Add(this.labelCopyright, 0, 2);
             this.tableLayoutPanel.Controls.Add(this.labelCompanyName, 0, 3);
             this.tableLayoutPanel.Controls.Add(this.textBoxDescription, 0, 4);
             this.tableLayoutPanel.Controls.Add(this.okButton, 0, 5);
-            this.tableLayoutPanel.Location = new System.Drawing.Point(161, 9);
+            this.tableLayoutPanel.Location = new System.Drawing.Point(242, 14);
+            this.tableLayoutPanel.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.tableLayoutPanel.Name = "tableLayoutPanel";
             this.tableLayoutPanel.RowCount = 6;
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
@@ -64,29 +63,29 @@
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 50F));
             this.tableLayoutPanel.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 10F));
-            this.tableLayoutPanel.Size = new System.Drawing.Size(462, 239);
+            this.tableLayoutPanel.Size = new System.Drawing.Size(693, 368);
             this.tableLayoutPanel.TabIndex = 0;
             // 
             // labelProductName
             // 
             this.labelProductName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelProductName.Location = new System.Drawing.Point(6, 0);
-            this.labelProductName.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
-            this.labelProductName.MaximumSize = new System.Drawing.Size(0, 17);
+            this.labelProductName.Location = new System.Drawing.Point(9, 0);
+            this.labelProductName.Margin = new System.Windows.Forms.Padding(9, 0, 4, 0);
+            this.labelProductName.MaximumSize = new System.Drawing.Size(0, 26);
             this.labelProductName.Name = "labelProductName";
-            this.labelProductName.Size = new System.Drawing.Size(453, 17);
+            this.labelProductName.Size = new System.Drawing.Size(680, 26);
             this.labelProductName.TabIndex = 19;
-            this.labelProductName.Text = "Enterprise Architect to Protocol Buffer Exporter";
+            this.labelProductName.Text = "OpenFMB Protobuf Exporter";
             this.labelProductName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
             // labelVersion
             // 
             this.labelVersion.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelVersion.Location = new System.Drawing.Point(6, 23);
-            this.labelVersion.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
-            this.labelVersion.MaximumSize = new System.Drawing.Size(0, 17);
+            this.labelVersion.Location = new System.Drawing.Point(9, 36);
+            this.labelVersion.Margin = new System.Windows.Forms.Padding(9, 0, 4, 0);
+            this.labelVersion.MaximumSize = new System.Drawing.Size(0, 26);
             this.labelVersion.Name = "labelVersion";
-            this.labelVersion.Size = new System.Drawing.Size(453, 17);
+            this.labelVersion.Size = new System.Drawing.Size(680, 26);
             this.labelVersion.TabIndex = 0;
             this.labelVersion.Text = "Version 1.0";
             this.labelVersion.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
@@ -94,24 +93,24 @@
             // labelCopyright
             // 
             this.labelCopyright.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelCopyright.Location = new System.Drawing.Point(6, 46);
-            this.labelCopyright.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
-            this.labelCopyright.MaximumSize = new System.Drawing.Size(0, 17);
+            this.labelCopyright.Location = new System.Drawing.Point(9, 72);
+            this.labelCopyright.Margin = new System.Windows.Forms.Padding(9, 0, 4, 0);
+            this.labelCopyright.MaximumSize = new System.Drawing.Size(0, 26);
             this.labelCopyright.Name = "labelCopyright";
-            this.labelCopyright.Size = new System.Drawing.Size(453, 17);
+            this.labelCopyright.Size = new System.Drawing.Size(680, 26);
             this.labelCopyright.TabIndex = 21;
-            this.labelCopyright.Text = "Copyright © 2018-2019 Duke Energy Corporation and Open Energy Solutions, Inc.";
+            this.labelCopyright.Text = "Copyright © 2018-2022 Open Energy Solutions, Inc.";
             this.labelCopyright.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelCopyright.Click += new System.EventHandler(this.labelCopyright_Click);
             // 
             // labelCompanyName
             // 
             this.labelCompanyName.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.labelCompanyName.Location = new System.Drawing.Point(6, 69);
-            this.labelCompanyName.Margin = new System.Windows.Forms.Padding(6, 0, 3, 0);
-            this.labelCompanyName.MaximumSize = new System.Drawing.Size(0, 17);
+            this.labelCompanyName.Location = new System.Drawing.Point(9, 108);
+            this.labelCompanyName.Margin = new System.Windows.Forms.Padding(9, 0, 4, 0);
+            this.labelCompanyName.MaximumSize = new System.Drawing.Size(0, 26);
             this.labelCompanyName.Name = "labelCompanyName";
-            this.labelCompanyName.Size = new System.Drawing.Size(453, 17);
+            this.labelCompanyName.Size = new System.Drawing.Size(680, 26);
             this.labelCompanyName.TabIndex = 22;
             this.labelCompanyName.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             this.labelCompanyName.Visible = false;
@@ -119,54 +118,45 @@
             // textBoxDescription
             // 
             this.textBoxDescription.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.textBoxDescription.Location = new System.Drawing.Point(6, 95);
-            this.textBoxDescription.Margin = new System.Windows.Forms.Padding(6, 3, 3, 3);
+            this.textBoxDescription.Location = new System.Drawing.Point(9, 149);
+            this.textBoxDescription.Margin = new System.Windows.Forms.Padding(9, 5, 4, 5);
             this.textBoxDescription.Multiline = true;
             this.textBoxDescription.Name = "textBoxDescription";
             this.textBoxDescription.ReadOnly = true;
             this.textBoxDescription.ScrollBars = System.Windows.Forms.ScrollBars.Both;
-            this.textBoxDescription.Size = new System.Drawing.Size(453, 113);
+            this.textBoxDescription.Size = new System.Drawing.Size(680, 174);
             this.textBoxDescription.TabIndex = 23;
             this.textBoxDescription.TabStop = false;
-            this.textBoxDescription.Text = "The Enterprise Architect to Protocol Buffer Exporter is an Enterprise Architectur" +
-    "e Add-In to export OpenFMB UML modules or packages as Protocol Buffer definition" +
-    " (.proto) files.";
+            this.textBoxDescription.Text = "The OpenFMB Protobuf Exporter is an Enterprise Architecture Add-In to export O" +
+    "penFMB UML modules or packages as Protocol Buffer definition (.proto) files.";
             // 
             // okButton
             // 
             this.okButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
             this.okButton.DialogResult = System.Windows.Forms.DialogResult.OK;
-            this.okButton.Location = new System.Drawing.Point(384, 214);
+            this.okButton.Location = new System.Drawing.Point(577, 333);
+            this.okButton.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.okButton.Name = "okButton";
-            this.okButton.Size = new System.Drawing.Size(75, 22);
+            this.okButton.Size = new System.Drawing.Size(112, 30);
             this.okButton.TabIndex = 24;
             this.okButton.Text = "&OK";
             // 
             // panel1
             // 
             this.panel1.Controls.Add(this.pictureBox2);
-            this.panel1.Controls.Add(this.pictureBox1);
-            this.panel1.Location = new System.Drawing.Point(12, 9);
+            this.panel1.Location = new System.Drawing.Point(18, 14);
+            this.panel1.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(143, 239);
+            this.panel1.Size = new System.Drawing.Size(214, 368);
             this.panel1.TabIndex = 1;
-            // 
-            // pictureBox1
-            // 
-            this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(3, 3);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(137, 43);
-            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
-            this.pictureBox1.TabIndex = 0;
-            this.pictureBox1.TabStop = false;
             // 
             // pictureBox2
             // 
             this.pictureBox2.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox2.Image")));
-            this.pictureBox2.Location = new System.Drawing.Point(0, 59);
+            this.pictureBox2.Location = new System.Drawing.Point(0, 5);
+            this.pictureBox2.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.pictureBox2.Name = "pictureBox2";
-            this.pictureBox2.Size = new System.Drawing.Size(143, 85);
+            this.pictureBox2.Size = new System.Drawing.Size(214, 57);
             this.pictureBox2.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox2.TabIndex = 1;
             this.pictureBox2.TabStop = false;
@@ -174,16 +164,17 @@
             // AboutBox
             // 
             this.AcceptButton = this.okButton;
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(9F, 20F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(632, 257);
+            this.ClientSize = new System.Drawing.Size(948, 395);
             this.Controls.Add(this.panel1);
             this.Controls.Add(this.tableLayoutPanel);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Margin = new System.Windows.Forms.Padding(4, 5, 4, 5);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
             this.Name = "AboutBox";
-            this.Padding = new System.Windows.Forms.Padding(9);
+            this.Padding = new System.Windows.Forms.Padding(14);
             this.ShowIcon = false;
             this.ShowInTaskbar = false;
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterParent;
@@ -191,7 +182,6 @@
             this.tableLayoutPanel.ResumeLayout(false);
             this.tableLayoutPanel.PerformLayout();
             this.panel1.ResumeLayout(false);
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox2)).EndInit();
             this.ResumeLayout(false);
 
@@ -207,7 +197,6 @@
         private System.Windows.Forms.TextBox textBoxDescription;
         private System.Windows.Forms.Button okButton;
         private System.Windows.Forms.Panel panel1;
-        private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.PictureBox pictureBox2;
     }
 }

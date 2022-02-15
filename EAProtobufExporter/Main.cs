@@ -1,27 +1,13 @@
-﻿/*********************************************************************************************
-   Copyright 2017 Duke Energy Corporation and Open Energy Solutions, Inc.
-
-   Licensed under the Apache License, Version 2.0 (the "License");
-   you may not use this file except in compliance with the License.
-   You may obtain a copy of the License at
-
-   http://www.apache.org/licenses/LICENSE-2.0
-
-   Unless required by applicable law or agreed to in writing, software
-   distributed under the License is distributed on an "AS IS" BASIS,
-   WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
-   See the License for the specific language governing permissions and
-   limitations under the License.
-**********************************************************************************************/
-
-using System;
-using System.Windows.Forms;
-
-using System.Drawing;
-using System.Runtime.InteropServices;
-using System.Collections.Generic;
+﻿// SPDX-FileCopyrightText: 2022 Open Energy Solutions Inc
+//
+// SPDX-License-Identifier: Apache-2.0
 
 using EA;
+using System;
+using System.Collections.Generic;
+using System.Drawing;
+using System.Runtime.InteropServices;
+using System.Windows.Forms;
 
 namespace EAProtobufExporter
 {
@@ -29,8 +15,8 @@ namespace EAProtobufExporter
     {
         private static Boolean DEBUG = false;
 
-        const String menuHeader = "-&ProtoBuf Generator";
-        const String menuItem_Generate_proto3 = "&Generate proto3...";
+        const String menuHeader = "-&OpenFMB Protobuf Exporter";
+        const String menuItem_Generate_proto3 = "&Export to proto files...";
         const String menuItem_About = "&About";
 
         private static String logFileName = null;

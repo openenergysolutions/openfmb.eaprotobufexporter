@@ -1,16 +1,20 @@
-﻿using System.Reflection;
+﻿// SPDX-FileCopyrightText: 2022 Open Energy Solutions Inc
+//
+// SPDX-License-Identifier: Apache-2.0
+
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("EAProtobufExporter")]
-[assembly: AssemblyDescription("The Enterprise Architect to Protocol Buffer Exporter is an Enterprise Architect Add-In to export OpenFMB UML modules or packages as Protocol Buffer definition (.proto) files.")]
+[assembly: AssemblyTitle("OpenFMB Protobuf Exporter")]
+[assembly: AssemblyDescription("The OpenFMB Protobuf Exporter is an Enterprise Architect Add-In to export OpenFMB UML modules or packages as Protocol Buffer definition (.proto) files.")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("Enterprise Architect to Protocol Buffers Exporter")]
-[assembly: AssemblyCopyright("Copyright © 2018-2019 Duke Energy Corporation and Open Energy Solutions, Inc.")]
+[assembly: AssemblyProduct("OpenFMB Protobuf Exporter")]
+[assembly: AssemblyCopyright("Copyright © 2018-2022 Open Energy Solutions, Inc.")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
 

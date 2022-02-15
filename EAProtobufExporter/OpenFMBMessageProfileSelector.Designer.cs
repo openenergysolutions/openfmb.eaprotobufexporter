@@ -70,7 +70,7 @@
             this.buttonGenerateProtobuf.Name = "buttonGenerateProtobuf";
             this.buttonGenerateProtobuf.Size = new System.Drawing.Size(110, 26);
             this.buttonGenerateProtobuf.TabIndex = 1;
-            this.buttonGenerateProtobuf.Text = "Generate Protobuf";
+            this.buttonGenerateProtobuf.Text = "Export Protobuf";
             this.buttonGenerateProtobuf.UseVisualStyleBackColor = true;
             this.buttonGenerateProtobuf.Click += new System.EventHandler(this.buttonGenerateProtobuf_Click);
             // 
