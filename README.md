@@ -35,7 +35,7 @@ The OpenFMB Protobuf Exporter is an [Enterprise Architect](https://sparxsystems.
 
 ## Running the OpenFMB Protobuf Exporter Add-In
 
-1. Start [Enterprise Architech](https://sparxsystems.com/) and load [OpenFMB UML model](https://gitlab.com/openfmb/pim/ops/-/blob/master/OpenFMB%20Operational%20Model%20(61850-CIM)%20(v2.0.0).eap)
+1. Start [Enterprise Architect](https://sparxsystems.com/) and load [OpenFMB UML model](https://gitlab.com/openfmb/pim/ops/-/blob/master/OpenFMB%20Operational%20Model%20(61850-CIM)%20(v2.0.0).eap)
 
     ![image](https://user-images.githubusercontent.com/43071770/154147105-4cd939b7-c508-46b0-a5fd-085b506ebb58.png)
 
