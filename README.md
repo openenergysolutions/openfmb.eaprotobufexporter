@@ -2,9 +2,10 @@
 
 ## Overview
 
-The OpenFMB Protobuf Exporter is an [Enterprise Architect](https://sparxsystems.com/) Add-In to export OpenFMB UML modules or packages as Protocol Buffer definition (.proto) files.
+The OpenFMB Protobuf Exporter is an [Enterprise Architect](https://sparxsystems.com/)<sup>*</sup> Add-In to export OpenFMB UML modules or packages as Protocol Buffer definition (.proto) files.
 
-[Enterprise Architect](https://sparxsystems.com/) is a commercial tool that needs appropriate licensing so that the OpenFMB Protobuf Exporter add-in can be installed.
+**<ins>NOTE</ins>:<br/>**
+[Enterprise Architect](https://sparxsystems.com/) is a commercial tool that needs appropriate licensing so that the OpenFMB Protobuf Exporter add-in can be installed.<br/><br/>
 
 ## Installation
 
@@ -48,6 +49,8 @@ The OpenFMB Protobuf Exporter is an [Enterprise Architect](https://sparxsystems.
     ![image](https://user-images.githubusercontent.com/43071770/154147925-f3482a91-5103-4d0c-8e34-46c4c981c7ad.png)
 
     ![image](https://user-images.githubusercontent.com/43071770/154148027-246620b8-41bf-4499-b391-5d57dfb972e1.png)
+    
+    By default, all the modules are checked.  Uncheck the modules that you do not want to be generated.
 
 4. Click on Export Protobuf button to start exporting
 
@@ -78,7 +81,7 @@ git clone https://github.com/openenergysolutions/openfmb.eaprotobufexporter.git
 
 ## Building
 
-The OpenFMB Protobuf Export is written in C# Winform.  Microsoft Visual Studio is needed to build the tool.
+The OpenFMB Protobuf Export is written in C# Winform.  Microsoft Visual Studio is needed to build the tool.  The output is the `EAProtobufExporter.dll` that can be manually installed in **Manual Installation** section below.
 
 ## Manual Installation
 
