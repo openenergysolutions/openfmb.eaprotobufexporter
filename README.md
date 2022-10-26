@@ -92,11 +92,13 @@ Manually installing the OpenFMB Protobuf Exporter can be done by following these
     ```bash
     C:\Windows\Microsoft.NET\Framework\v4.0.30319\RegAsm.exe "C:\Program Files\OpenFMB\bin\EAProtobufExporter.dll" /codebase
     ```
-3.	Create a new entry in the registry by running regedit. This will allow Enterprise Architect to recognize the presence of the OpenFMB Protobuf Exporter Add-In. Add the new key value “EAAddIns” under the appropriate location:
+3.	Create a new entry in the registry by running regedit. This will allow Enterprise Architect to recognize the presence of the OpenFMB Protobuf Exporter Add-In. Add the new key value “EAAddIns” or "EAAddIns64" under the appropriate location:
     - For single users: “HKEY_CURRENT_USER\Software\Sparx Systems”
     - For multiple users: “HKEY_LOCAL_MACHINE\Software\Sparx Systems”
     
-4.	Under the “EAAddIns” key, add a new key value using the project name “EAProtobufExporter” of the OpenFMB Protobuf Exporter Add-In
+    **NOTE: For Enterprise Architect 64-bit (version 16 or later), the registry key is `EAAddIns64`.  For older version, the registry key is `EAAddIns`**
+    
+4.	Under the “EAAddIns” or "EAAddIns64" key, add a new key value using the project name “EAProtobufExporter” of the OpenFMB Protobuf Exporter Add-In
 
 5.	Under the “EAProtobufExporter” key, modify the default value by entering the "project-name.class-name" of the OpenFMB Protobuf Exporter Add-In “EAProtobufExporter.Main”
 
