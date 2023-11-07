@@ -311,7 +311,7 @@
         "Name" = "8:Microsoft Visual Studio"
         "ProductName" = "8:OpenFMB Protobuf Exporter"
         "ProductCode" = "8:{017201EA-4243-41AD-8B7F-082D988337BF}"
-        "PackageCode" = "8:{6F2FF68B-EA36-44F0-8CBC-EA34FF05C467}"
+        "PackageCode" = "8:{5AD8EAB9-C8DF-4478-B5C6-FCC64B0FC447}"
         "UpgradeCode" = "8:{63F65870-EF91-4106-8D69-71C6F65CBD1E}"
         "AspNetVersion" = "8:4.0.30319.0"
         "RestartWWWService" = "11:FALSE"
@@ -361,9 +361,45 @@
                             "Transitive" = "11:FALSE"
                                 "Keys"
                                 {
-                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_49EA517305544F8F938401744CD2979D"
+                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_1A018907F3D34E73AF86877757D67381"
                                     {
                                     "Name" = "8:EAAddins"
+                                    "Condition" = "8:"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "DeleteAtUninstall" = "11:FALSE"
+                                    "Transitive" = "11:FALSE"
+                                        "Keys"
+                                        {
+                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_75C8282D003641D495871C1BF1DFDC3D"
+                                            {
+                                            "Name" = "8:EAProtobufExporter"
+                                            "Condition" = "8:"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "DeleteAtUninstall" = "11:FALSE"
+                                            "Transitive" = "11:FALSE"
+                                                "Keys"
+                                                {
+                                                }
+                                                "Values"
+                                                {
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_C3FCB62D5A544EA3A987A303A37EFED5"
+                                                    {
+                                                    "Name" = "8:"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:EAProtobufExporter.Main"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        "Values"
+                                        {
+                                        }
+                                    }
+                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_49EA517305544F8F938401744CD2979D"
+                                    {
+                                    "Name" = "8:EAAddins64"
                                     "Condition" = "8:"
                                     "AlwaysCreate" = "11:FALSE"
                                     "DeleteAtUninstall" = "11:FALSE"
@@ -433,7 +469,7 @@
                                 {
                                     "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_01717120A8104CFDA3DBAB4A0C500919"
                                     {
-                                    "Name" = "8:EAAddins"
+                                    "Name" = "8:EAAddins64"
                                     "Condition" = "8:"
                                     "AlwaysCreate" = "11:FALSE"
                                     "DeleteAtUninstall" = "11:FALSE"
@@ -453,6 +489,42 @@
                                                 "Values"
                                                 {
                                                     "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_57A77C925E714E719F3CE541FB8692B2"
+                                                    {
+                                                    "Name" = "8:"
+                                                    "Condition" = "8:"
+                                                    "Transitive" = "11:FALSE"
+                                                    "ValueTypes" = "3:1"
+                                                    "Value" = "8:EAProtobufExporter.Main"
+                                                    }
+                                                }
+                                            }
+                                        }
+                                        "Values"
+                                        {
+                                        }
+                                    }
+                                    "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_52D8897BACF8438EB9CDEBFBA4C115F8"
+                                    {
+                                    "Name" = "8:EAAddins"
+                                    "Condition" = "8:"
+                                    "AlwaysCreate" = "11:FALSE"
+                                    "DeleteAtUninstall" = "11:FALSE"
+                                    "Transitive" = "11:FALSE"
+                                        "Keys"
+                                        {
+                                            "{60EA8692-D2D5-43EB-80DC-7906BF13D6EF}:_C03E0EB5C71948C59A95175D880EEFAB"
+                                            {
+                                            "Name" = "8:EAProtobufExporter"
+                                            "Condition" = "8:"
+                                            "AlwaysCreate" = "11:FALSE"
+                                            "DeleteAtUninstall" = "11:FALSE"
+                                            "Transitive" = "11:FALSE"
+                                                "Keys"
+                                                {
+                                                }
+                                                "Values"
+                                                {
+                                                    "{ADCFDA98-8FDD-45E4-90BC-E3D20B029870}:_7C225B1FB1824045BF9434CC50AA18ED"
                                                     {
                                                     "Name" = "8:"
                                                     "Condition" = "8:"
