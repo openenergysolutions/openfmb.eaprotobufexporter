@@ -78,13 +78,8 @@ namespace EAProtobufExporter
         public string AssemblyCopyright
         {
             get
-            {
-                object[] attributes = Assembly.GetExecutingAssembly().GetCustomAttributes(typeof(AssemblyCopyrightAttribute), false);
-                if (attributes.Length == 0)
-                {
-                    return "";
-                }
-                return ((AssemblyCopyrightAttribute)attributes[0]).Copyright;
+            {                
+                return $"Copyright © 2018-{System.DateTime.Today.Year} Open Energy Solutions, Inc.";
             }
         }
 

@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 2013
-VisualStudioVersion = 12.0.31101.0
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.33927.289
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EAProtobufExporter", "EAProtobufExporter.csproj", "{C737BEB9-0990-442F-8090-F69D98DAF038}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "Setup", "..\Setup\Setup.vdproj", "{9977209C-FB94-4243-9B0D-94F82EF500D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,8 +17,13 @@ Global
 		{C737BEB9-0990-442F-8090-F69D98DAF038}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{C737BEB9-0990-442F-8090-F69D98DAF038}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{C737BEB9-0990-442F-8090-F69D98DAF038}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9977209C-FB94-4243-9B0D-94F82EF500D5}.Debug|Any CPU.ActiveCfg = Debug
+		{9977209C-FB94-4243-9B0D-94F82EF500D5}.Release|Any CPU.ActiveCfg = Release
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {EC5B9EB1-0484-443D-B97C-E749C40635C0}
 	EndGlobalSection
 EndGlobal
