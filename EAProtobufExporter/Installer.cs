@@ -2,9 +2,12 @@
 //
 // SPDX-License-Identifier: Apache-2.0
 
-using Microsoft.Build.Tasks;
+// To build a 32-bit setup, comment out this line
+#define SETUP_64
+
 using System.Collections;
 using System.ComponentModel;
+using System.Runtime.InteropServices;
 
 namespace EAProtobufExporter
 {
@@ -18,25 +21,29 @@ namespace EAProtobufExporter
 
         public override void Install(IDictionary stateSaver)
         {
-            var regasmPath = System.IO.Path.Combine(System.Runtime.InteropServices.RuntimeEnvironment.GetRuntimeDirectory(), @"regasm.exe");
-            var file = System.IO.Path.Combine(Context.Parameters["targetdir"].TrimEnd('\\'), "EAProtobufExporter.dll");            
+            var file = System.IO.Path.Combine(Context.Parameters["targetdir"].TrimEnd('\\'), "EAProtobufExporter.dll");
+#if SETUP_64
+            RegistrationServices service = new RegistrationServices();
+            var assembly = System.Reflection.Assembly.LoadFrom(file);
+            service.RegisterAssembly(assembly, AssemblyRegistrationFlags.SetCodeBase);
+#else
+            var regasmPath = System.IO.Path.Combine(System.Runtime.InteropServices.RuntimeEnvironment.GetRuntimeDirectory(), @"regasm.exe");                        
             System.Diagnostics.Process.Start(regasmPath, "/codebase \"" + file + "\"");
+#endif
             base.Install(stateSaver);
-        }
-
-        public override void Commit(IDictionary savedState)
-        {
-            //var regasmPath = System.IO.Path.Combine(System.Runtime.InteropServices.RuntimeEnvironment.GetRuntimeDirectory(), @"regasm.exe");
-            //var file = System.IO.Path.Combine(Context.Parameters["targetdir"].TrimEnd('\\'), "EAProtobufExporter.dll");
-            //System.Diagnostics.Process.Start(regasmPath, "/codebase \"" + file + "\"");
-            base.Commit(savedState);
         }
 
         public override void Uninstall(IDictionary savedState)
         {
-            var regasmPath = System.IO.Path.Combine(System.Runtime.InteropServices.RuntimeEnvironment.GetRuntimeDirectory(), @"regasm.exe");
             var file = System.IO.Path.Combine(Context.Parameters["targetdir"].TrimEnd('\\'), "EAProtobufExporter.dll");
+#if SETUP_64
+            RegistrationServices service = new RegistrationServices();
+            var assembly = System.Reflection.Assembly.LoadFrom(file);
+            service.UnregisterAssembly(assembly);
+#else
+            var regasmPath = System.IO.Path.Combine(System.Runtime.InteropServices.RuntimeEnvironment.GetRuntimeDirectory(), @"regasm.exe");            
             System.Diagnostics.Process.Start(regasmPath, "/u \"" + file + "\"");
+#endif
             base.Uninstall(savedState);
         }
     }
